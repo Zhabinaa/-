@@ -1,0 +1,101 @@
+using System;
+class EngMer
+{
+    private int pounds;
+    private int inches;
+
+    public EngMer(int pounds, int inches)
+    {
+        this.pounds = pounds;
+        this.inches = inches;
+    }
+
+    public void Add(EngMer other)
+    {
+        int totalInches = this.pounds * 12 + this.inches + other.pounds * 12 + other.inches;
+        int newPounds = totalInches / 12;
+        int newInches = totalInches % 12;
+        Console.WriteLine($"Результат сложения: {newPounds} фунтов и {newInches} дюймов");
+    }
+
+    public void Subtract(EngMer other)
+    {
+        int totalInches = this.pounds * 12 + this.inches - (other.pounds * 12 + other.inches);
+        int newPounds = totalInches / 12;
+        int newInches = totalInches % 12;
+        Console.WriteLine($"Результат вычитания: {newPounds} фунтов и {newInches} дюймов");
+    }
+
+    public void Multiply(int multiplier)
+    {
+        int totalInches = this.pounds * 12 + this.inches;
+        totalInches *= multiplier;
+        int newPounds = totalInches / 12;
+        int newInches = totalInches % 12;
+        Console.WriteLine($"Результат умножения: {newPounds} фунтов и {newInches} дюймов");
+    }
+
+    public void Divide(int divisor)
+    {
+        int totalInches = this.pounds * 12 + this.inches;
+        totalInches /= divisor;
+        int newPounds = totalInches / 12;
+        int newInches = totalInches % 12;
+        Console.WriteLine($"Результат деления: {newPounds} фунтов и {newInches} дюймов");
+    }
+
+    public void Compare(EngMer other)
+    {
+        int thisTotalInches = this.pounds * 12 + this.inches;
+        int otherTotalInches = other.pounds * 12 + other.inches;
+
+        if (thisTotalInches == otherTotalInches)
+            Console.WriteLine("Числа равны");
+        else if (thisTotalInches > otherTotalInches)
+            Console.WriteLine("Первое число больше второго");
+        else
+            Console.WriteLine("Второе число больше первого");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("Введите первое число фунтов и дюймов через пробел");
+            string[] input1 = Console.ReadLine().Split(' ');
+            EngMer value1 = new EngMer(int.Parse(input1[0]), int.Parse(input1[1]));
+
+            Console.WriteLine("Введите второе число фунтов и дюймов через пробел");
+            string[] input2 = Console.ReadLine().Split(' ');
+            EngMer value2 = new EngMer(int.Parse(input2[0]), int.Parse(input2[1]));
+
+            value1.Add(value2);
+            value1.Subtract(value2);
+            value1.Multiply(2);
+            value1.Divide(2);
+            value1.Compare(value2);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Ошибка ввода. Введите числовые значения!");
+            Console.WriteLine("");
+
+            Console.WriteLine("Введите первое число фунтов и дюймов через пробел");
+            string[] input1 = Console.ReadLine().Split(' ');
+            EngMer value1 = new EngMer(int.Parse(input1[0]), int.Parse(input1[1]));
+
+            Console.WriteLine("Введите второе число фунтов и дюймов через пробел");
+            string[] input2 = Console.ReadLine().Split(' ');
+            EngMer value2 = new EngMer(int.Parse(input2[0]), int.Parse(input2[1]));
+
+            value1.Add(value2);
+            value1.Subtract(value2);
+            value1.Multiply(2);
+            value1.Divide(2);
+            value1.Compare(value2);
+        }
+    }
+}
