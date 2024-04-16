@@ -1,0 +1,106 @@
+abstract class Animal
+{
+    public string Name { get; set; }
+    public abstract void Talk();
+
+    public void PrintName()
+    {
+        Console.WriteLine($"Меня зовут {Name}!");
+    }
+}
+abstract class Аrtiodactyls : Animal
+{
+    public abstract void Gallop();
+}
+class Cat : Animal
+{
+    public Cat()
+    {
+        Console.Write("Введите имя кошки: ");
+        Name = Console.ReadLine();
+    }
+
+    public override void Talk()
+    {
+        Console.WriteLine("Мяу");
+    }
+}
+class Dog : Animal
+{
+    public Dog()
+    {
+        Console.Write("Введите имя собаки: ");
+        Name = Console.ReadLine();
+    }
+    public override void Talk()
+    {
+        Console.WriteLine("Гав");
+    }
+}
+class Cow : Аrtiodactyls
+{
+    public Cow()
+    {
+        Console.Write("Введите имя коровы: ");
+        Name = Console.ReadLine();
+    }
+    public override void Talk()
+    {
+        Console.WriteLine("Мууу"); ;
+    }
+    public override void Gallop()
+    {
+        Console.WriteLine("Топ-топ");
+    }
+}
+class Horse : Аrtiodactyls
+{
+    public Horse()
+    {
+        Console.Write("Введите имя лошади: ");
+        Name = Console.ReadLine();
+    }
+    public override void Talk()
+    {
+        Console.WriteLine("Игого");
+    }
+    public override void Gallop()
+    {
+        Console.WriteLine("Топ-топ");
+    }
+
+}
+
+class Program
+{
+    static void Main()
+    {
+        Cat cat = new Cat();
+        Dog dog = new Dog();
+        Cow cow = new Cow();
+        Horse horse = new Horse();
+
+        Console.WriteLine();
+        Console.WriteLine("Кошка:");
+        cat.PrintName();
+        Console.Write("Я говорю: ");
+        cat.Talk();
+        Console.WriteLine();
+        Console.WriteLine("Собака:");
+        dog.PrintName();
+        Console.Write("Я говорю: ");
+        dog.Talk();
+        Console.WriteLine();
+        Console.WriteLine("Корова:");
+        cow.PrintName();
+        Console.Write("Я говорю: ");
+        cow.Talk();
+        cow.Gallop();
+        Console.WriteLine();
+        Console.WriteLine("Лошадь");
+        horse.PrintName();
+        Console.Write("Я говорю: ");
+        horse.Talk();
+        horse.Gallop();
+    }
+}
