@@ -1,0 +1,254 @@
+class Money
+{
+    public double Sum1;
+    public double Sum2;
+    public double Number;
+    public Money()
+    {
+        try
+        {
+            Console.Write("Введите первую сумму. Рубли должны быть отделены от копеек запятой: ");
+            Sum1 = double.Parse(Console.ReadLine());
+            Console.Write("Введите вторую сумму. Рубли должны быть отделены от копеек запятой: ");
+            Sum2 = double.Parse(Console.ReadLine());
+            Console.Write("Введите дробное число, на которое будем делить и умножать: ");
+            Number = double.Parse(Console.ReadLine());
+            Console.WriteLine();
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Ошибка ввода. Введите числовые значения!");
+
+            Console.Write("Введите первую сумму. Рубли должны быть отделены от копеек запятой: ");
+            Sum1 = double.Parse(Console.ReadLine());
+            Console.Write("Введите вторую сумму. Рубли должны быть отделены от копеек запятой: ");
+            Sum2 = double.Parse(Console.ReadLine());
+            Console.Write("Введите дробное число, на которое будем делить и умножать: ");
+            Number = double.Parse(Console.ReadLine());
+            Console.WriteLine();
+        }
+    }
+
+    public void Rub1()
+    {
+        double sum1 = Sum1;
+        double sum2 = Sum2;
+
+        int fiveThousand = (int)(sum1 / 5000);
+        sum1 -= fiveThousand * 5000;
+
+        int oneThousand = (int)(sum1 / 1000);
+        sum1 -= oneThousand * 1000;
+
+        int fiveHundred = (int)(sum1 / 500);
+        sum1 -= fiveHundred * 500;
+
+        int oneHundred = (int)(sum1 / 100);
+        sum1 -= oneHundred * 100;
+
+        int fifty = (int)(sum1 / 50);
+        sum1 -= fifty * 50;
+
+        int ten = (int)(sum1 / 10);
+        sum1 -= ten * 10;
+
+        int five = (int)(sum1 / 5);
+        sum1 -= five * 5;
+
+        int two = (int)(sum1 / 2);
+        sum1 -= two * 2;
+
+        int one = (int)(sum1 / 1);
+        sum1 -= one * 1;
+
+        int fiftyKopecks = (int)(sum1 / 0.5);
+        sum1 -= fiftyKopecks * 0.5;
+
+        int tenKopecks = (int)(sum1 / 0.1);
+        sum1 -= tenKopecks * 0.1;
+
+        int fiveKopecks = (int)(sum1 / 0.05);
+        sum1 -= fiveKopecks * 0.05;
+
+        int oneKopecks = (int)(sum1 / 0.01);
+        sum1 -= oneKopecks * 0.01;
+
+        Console.WriteLine($"5000 купюр: {fiveThousand}");
+        Console.WriteLine($"1000 купюр: {oneThousand}");
+        Console.WriteLine($"500 рублевых купюр: {fiveHundred}");
+        Console.WriteLine($"100 рублевых купюр: {oneHundred}");
+        Console.WriteLine($"50 рублевых купюр: {fifty}");
+        Console.WriteLine($"10 рублевых купюр: {ten}");
+        Console.WriteLine($"5 рублевых купюр: {five}");
+        Console.WriteLine($"2 рублевых монеты: {two}");
+        Console.WriteLine($"1 рублевых монеты: {one}");
+        Console.WriteLine($"0,5 копеечных монеты: {fiftyKopecks}");
+        Console.WriteLine($"0,1 копеечных монеты: {tenKopecks}");
+        Console.WriteLine($"0,05 копеечных монеты: {fiveKopecks}");
+        Console.WriteLine($"0,01 копеечных монеты: {oneKopecks}");
+    }
+
+    public void Rub2()
+    {
+
+        double sum2 = Sum2;
+
+        int fiveThousand = (int)(sum2 / 5000);
+        sum2 -= fiveThousand * 5000;
+
+        int oneThousand = (int)(sum2 / 1000);
+        sum2 -= oneThousand * 1000;
+
+        int fiveHundred = (int)(sum2 / 500);
+        sum2 -= fiveHundred * 500;
+
+        int oneHundred = (int)(sum2 / 100);
+        sum2 -= oneHundred * 100;
+
+        int fifty = (int)(sum2 / 50);
+        sum2 -= fifty * 50;
+
+        int ten = (int)(sum2 / 10);
+        sum2 -= ten * 10;
+
+        int five = (int)(sum2 / 5);
+        sum2 -= five * 5;
+
+        int two = (int)(sum2 / 2);
+        sum2 -= two * 2;
+
+        int one = (int)(sum2 / 1);
+        sum2 -= one * 1;
+
+        int fiftyKopecks = (int)(sum2 / 0.5);
+        sum2 -= fiftyKopecks * 0.5;
+
+        int tenKopecks = (int)(sum2 / 0.1);
+        sum2 -= tenKopecks * 0.1;
+
+        int fiveKopecks = (int)(sum2 / 0.05);
+        sum2 -= fiveKopecks * 0.05;
+
+        int oneKopecks = (int)(sum2 / 0.01);
+        sum2 -= oneKopecks * 0.01;
+
+        Console.WriteLine($"5000 купюр: {fiveThousand}");
+        Console.WriteLine($"1000 купюр: {oneThousand}");
+        Console.WriteLine($"500 рублевых купюр: {fiveHundred}");
+        Console.WriteLine($"100 рублевых купюр: {oneHundred}");
+        Console.WriteLine($"50 рублевых купюр: {fifty}");
+        Console.WriteLine($"10 рублевых купюр: {ten}");
+        Console.WriteLine($"5 рублевых купюр: {five}");
+        Console.WriteLine($"2 рублевых монеты: {two}");
+        Console.WriteLine($"1 рублевых монеты: {one}");
+        Console.WriteLine($"0,5 копеечных монеты: {fiftyKopecks}");
+        Console.WriteLine($"0,1 копеечных монеты: {tenKopecks}");
+        Console.WriteLine($"0,05 копеечных монеты: {fiveKopecks}");
+        Console.WriteLine($"0,01 копеечных монеты: {oneKopecks}");
+    }
+
+    public void Add()
+    {
+        double sum = 0;
+        sum = Sum1 + Sum2;
+        Console.WriteLine(sum);
+    }
+
+    public void Subtract()
+    {
+        double subtract = 0;
+        subtract = Sum1 - Sum2;
+        Console.WriteLine(subtract);
+    }
+
+    public void Devide12()
+    {
+        double devude = 0;
+        devude = Sum1 / Sum2;
+        Console.WriteLine(devude);
+    }
+
+    public void Devide21()
+    {
+        double devude = 0;
+        devude = Sum2 / Sum1;
+        Console.WriteLine(devude);
+    }
+
+    public void DevideNumber1()
+    {
+        double devide = 0;
+        devide = Sum1 / Number;
+        Console.WriteLine(devide);
+    }
+
+    public void DevideNumber2()
+    {
+        double devide = 0;
+        devide = Sum2 / Number;
+        Console.WriteLine(devide);
+    }
+
+    public void Multiply1()
+    {
+        double multiply = 0;
+        multiply = Number * Sum1;
+        Console.WriteLine(multiply);
+    }
+
+    public void Multiply2()
+    {
+        double multiply = 0;
+        multiply = Number * Sum2;
+        Console.WriteLine(multiply);
+    }
+
+    public void Compare()
+    {
+        if (Sum1 > Sum2)
+        {
+            Console.WriteLine("Первая сумма больше второй");
+        }
+        else if (Sum1 < Sum2)
+        {
+            Console.WriteLine("Вторая сумма больше первой");
+        }
+        else
+        {
+            Console.WriteLine("Числа равны");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Money money = new Money();
+
+        Console.WriteLine("Первая сумма: ");
+        money.Rub1();
+        Console.WriteLine();
+        Console.WriteLine("Вторая сумма: ");
+        money.Rub2();
+        Console.WriteLine();
+
+        Console.Write("Сложение сумм: ");
+        money.Add();
+        Console.Write("Вычитание сумм: ");
+        money.Subtract();
+        Console.Write("Деление первой суммы на вторую: ");
+        money.Devide12();
+        Console.Write("Деление второй суммы на первую: ");
+        money.Devide21();
+        Console.Write("Деление первой суммы на заданное число: ");
+        money.DevideNumber1();
+        Console.Write("Деление второй суммы на заданное число: ");
+        money.DevideNumber2();
+        Console.Write("Умножение первой суммы на заданное число: ");
+        money.Multiply1();
+        Console.Write("Умножение второй суммы на заданное число: ");
+        money.Multiply2();
+        money.Compare();
+    }
+}
